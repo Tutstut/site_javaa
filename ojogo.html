@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <style>
+        .cell {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+      font-size: 40px;
+      text-align: center;
+      line-height: 100px;
+      cursor: pointer;
+    }
+    .game {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    body{
+        background-color: yellow;
+    }
+      </style>
+    <title>O Jogo</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="ojogo.html">O Jogo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="questao01.html">Exercício 01</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" arial-current="page" href="questao02.html">Exercício 02</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" arial-current="page" href="questao03.html">
+                    Exercício 03
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" arial-current="page" href="questao04.html">
+                    Exercício 04
+                </a>
+              </li>
+              <li class="nav-item">                                                       
+                <a class="nav-link active" arial-current="page" href="questao05.html">Exercício 05</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link active" arial-current="page" href="questao06.html">
+                    Exercício 06
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link active" arial-current="page" href="questao07.html">
+                    Exercício 07
+                </a>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+<h1></h1>
+
+      <div class="game">
+        <div class="row">
+          <div class="cell" onclick="handleClick(0)"></div>
+          <div class="cell" onclick="handleClick(1)"></div>
+          <div class="cell" onclick="handleClick(2)"></div>
+        </div>
+        <div class="row">
+          <div class="cell" onclick="handleClick(3)"></div>
+          <div class="cell" onclick="handleClick(4)"></div>
+          <div class="cell" onclick="handleClick(5)"></div>
+        </div>
+        <div class="row">
+          <div class="cell" onclick="handleClick(6)"></div>
+          <div class="cell" onclick="handleClick(7)"></div>
+          <div class="cell" onclick="handleClick(8)"></div>
+        </div>
+      </div>
+    
+      <script>
+        let currentPlayer = 'X';
+        let cells = document.querySelectorAll('.cell');
+        let gameWon = false;
+        function handleClick(cellNumber) {
+          const cell = cells[cellNumber];
+          if (!cell.textContent && !gameWon) {
+            cell.textContent = currentPlayer;
+            cell.classList.add('fadeIn');
+            checkWinner();
+            if (!gameWon) {
+              currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            }
+          }
+        }
+        function checkWinner() {
+          const winningCombos = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Linhas
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colunas
+            [0, 4, 8], [2, 4, 6]             // Diagonais
+          ];
+          winningCombos.forEach(combo => {
+            const [a, b, c] = combo;
+            if (
+              cells[a].textContent &&
+              cells[a].textContent === cells[b].textContent &&
+              cells[a].textContent === cells[c].textContent
+            ) {
+              gameWon = true;
+              setTimeout(() => {
+                alert(`Jogador ${currentPlayer === 'X' ? 'O' : 'X'} ganhou!`);
+                resetGame();
+              }, 500);
+            }
+          });
+        }
+        function resetGame() {
+          cells.forEach(cell => {
+            cell.textContent = '';
+            cell.classList.remove('fadeIn');
+          });
+          currentPlayer = 'X';
+          gameWon = false;
+        }
+      </script>
+
+<h1></h1>
+
+     <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4">
+<img src="img/style.png" alt="">
+
+            </div>
+<div class="col-lg-4">
+    <img src="img/html.png" alt="">
+</div>
+        </div>
+     </div>
+     <h1></h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5">
+            <img src="img/script.png" alt="">
+            </div>
+
+<div class="col-lg-5">
+    <img src="img/scriptjogo.png" alt="">
+</div>
+
+    </div>
+
+</div>
+
+<footer class="page-footer p-6 col-16 m-auto"
+style="background-color: black;">
+<div class="text-center">
+    <a href="#">@ocarlos_edu & @on_rocha</a>
+</div>
+
+
+
+
+
+</footer>
+
+
+
+
+      <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

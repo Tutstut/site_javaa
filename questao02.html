@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>Conversor de Temperatura</title>
+    <style>
+       body{
+background-color: yellow;
+       }
+       input, button {
+    margin: 5px;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="ojogo.html">O Jogo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="questao01.html">Exercício 01</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" arial-current="page" href="questao02.html">Exercício 02</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" arial-current="page" href="questao03.html">
+                    Exercício 03
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" arial-current="page" href="questao04.html">
+                    Exercício 04
+                </a>
+              </li>
+              <li class="nav-item">                                                       
+                <a class="nav-link active" arial-current="page" href="questao05.html">Exercício 05</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link active" arial-current="page" href="questao06.html">
+                    Exercício 06
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link active" arial-current="page" href="questao07.html">
+                    Exercício 07
+                </a>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <h2>Conversor de Temperatura</h2>
+
+    <label for="tempInput">Temperatura:</label>
+    <input type="number" id="tempInput">
+
+    <label for="tempScale">Escala:</label>
+    <select id="tempScale">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+    </select>
+
+    <button onclick="converterTemperatura()">Converter</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function converterTemperatura() {
+            var temperatura = parseFloat(document.getElementById("tempInput").value);
+            var escala = document.getElementById("tempScale").value;
+            var resultadoElement = document.getElementById("resultado");
+
+            var resultado;
+
+            if (escala === "celsius") {
+                // Converter Celsius para Fahrenheit: F = (C * 9/5) + 32
+                resultado = (temperatura * 9/5) + 32;
+                resultadoElement.textContent = `${temperatura} graus Celsius é igual a ${resultado.toFixed(2)} graus Fahrenheit.`;
+            } else if (escala === "fahrenheit") {
+                // Converter Fahrenheit para Celsius: C = (F - 32) * 5/9
+                resultado = (temperatura - 32) * 5/9;
+                resultadoElement.textContent = `${temperatura} graus Fahrenheit é igual a ${resultado.toFixed(2)} graus Celsius.`;
+            } else {
+                resultadoElement.textContent = "Escala inválida";
+            }
+        }
+    </script>
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-4">
+<img src="img/html02.png" alt="">
+        </div>
+
+<h1></h1>
+
+    <div class="container">
+            
+        <div class="row">
+            <div class="col-lg-4">
+            <img src="img/script02.png" alt="">
+            </div>
+        </div>
+             </div>
+        </div>
+    </div>
+
+ <h1></h1>
+
+
+
+
+    <footer class="page-footer p-6 col-16 m-auto"
+    style="background-color: black;">
+    <div class="text-center">
+        <a href="#">@ocarlos_edu & @on_rocha</a>
+    </div>
+    </footer>
+    
+
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

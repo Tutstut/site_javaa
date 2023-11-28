@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>Calculadora de Venda</title>
+    <style>
+        input, button {
+            margin: 5px;
+        }
+        body{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="ojogo.html">O Jogo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="questao01.html">Exercício 01</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" arial-current="page" href="questao02.html">Exercício 02</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" arial-current="page" href="questao03.html">
+                    Exercício 03
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" arial-current="page" href="questao04.html">
+                    Exercício 04
+                </a>
+              </li>
+              <li class="nav-item">                                                       
+                <a class="nav-link active" arial-current="page" href="questao05.html">Exercício 05</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link active" arial-current="page" href="questao06.html">
+                    Exercício 06
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link active" arial-current="page" href="questao07.html">
+                    Exercício 07
+                </a>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <h2>Calculadora de Venda</h2>
+
+    <label for="produto1">Nome do Produto 1:</label>
+    <input type="text" id="produto1" placeholder="Nome">
+
+    <label for="valor1">Valor do Produto 1:</label>
+    <input type="number" id="valor1" placeholder="Valor">
+
+    <label for="quantidade1">Quantidade do Produto 1:</label>
+    <input type="number" id="quantidade1" placeholder="Quantidade">
+
+    <hr>
+
+    <label for="produto2">Nome do Produto 2:</label>
+    <input type="text" id="produto2" placeholder="Nome">
+
+    <label for="valor2">Valor do Produto 2:</label>
+    <input type="number" id="valor2" placeholder="Valor">
+
+    <label for="quantidade2">Quantidade do Produto 2:</label>
+    <input type="number" id="quantidade2" placeholder="Quantidade">
+
+    <hr>
+
+    <label for="produto3">Nome do Produto 3:</label>
+    <input type="text" id="produto3" placeholder="Nome">
+
+    <label for="valor3">Valor do Produto 3:</label>
+    <input type="number" id="valor3" placeholder="Valor">
+
+    <label for="quantidade3">Quantidade do Produto 3:</label>
+    <input type="number" id="quantidade3" placeholder="Quantidade">
+
+    <button onclick="calcularVenda()">Calcular Venda</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularVenda() {
+            var nome1 = document.getElementById("produto1").value;
+            var valor1 = parseFloat(document.getElementById("valor1").value);
+            var quantidade1 = parseInt(document.getElementById("quantidade1").value);
+
+            var nome2 = document.getElementById("produto2").value;
+            var valor2 = parseFloat(document.getElementById("valor2").value);
+            var quantidade2 = parseInt(document.getElementById("quantidade2").value);
+
+            var nome3 = document.getElementById("produto3").value;
+            var valor3 = parseFloat(document.getElementById("valor3").value);
+            var quantidade3 = parseInt(document.getElementById("quantidade3").value);
+
+            var totalVenda = (valor1 * quantidade1) + (valor2 * quantidade2) + (valor3 * quantidade3);
+
+            var resultadoElement = document.getElementById("resultado");
+            resultadoElement.textContent = `O valor total da venda é: R$ ${totalVenda.toFixed(2)}`;
+        }
+    </script>
+
+    
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-4">
+<img src="img/html03.png" alt="">
+        </div>
+
+<h1></h1>
+
+    <div class="container">
+            
+        <div class="row">
+            <div class="col-lg-4">
+            <img src="img/script03.png" alt="">
+            </div>
+        </div>
+             </div>
+        </div>
+    </div>
+
+ <h1></h1>
+
+
+    <footer class="page-footer p-6 col-16 m-auto"
+    style="background-color: black;">
+    <div class="text-center">
+        <a href="#">@ocarlos_edu & @on_rocha</a>
+    </div>
+    </footer>
+    
+
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
